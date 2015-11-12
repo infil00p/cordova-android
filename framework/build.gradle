@@ -31,6 +31,9 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+// Commenting this out until we figure out the maven steps
+// apply from: 'maven-push.gradle'
+
 ext {
     apply from: 'cordova.gradle'
     cdvCompileSdkVersion = privateHelpers.getProjectTarget()
