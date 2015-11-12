@@ -26,6 +26,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.annotation.TargetApi;
 
 import org.json.JSONException;
 
@@ -184,6 +185,7 @@ public class CordovaInterfaceImpl implements CordovaInterface {
         }
     }
 
+    @TargetApi(23)
     public void requestPermission(CordovaPlugin plugin, int requestCode, String permission) {
         permissionResultCallback = plugin;
         String[] permissions = new String [1];
@@ -191,12 +193,14 @@ public class CordovaInterfaceImpl implements CordovaInterface {
         getActivity().requestPermissions(permissions, requestCode);
     }
 
+    @TargetApi(23)
     public void requestPermissions(CordovaPlugin plugin, int requestCode, String [] permissions)
     {
         permissionResultCallback = plugin;
         getActivity().requestPermissions(permissions, requestCode);
     }
 
+    @TargetApi(23)
     public boolean hasPermission(String permission)
     {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
