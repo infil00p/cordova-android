@@ -173,6 +173,7 @@ public class SystemWebChromeClient extends WebChromeClient {
          return super.onConsoleMessage(consoleMessage);
     }
 
+    @TargetApi(23)
     @Override
     /**
      * Instructs the client to show a prompt to ask the user to set the Geolocation permission state for the specified origin.
@@ -274,7 +275,8 @@ public class SystemWebChromeClient extends WebChromeClient {
                 }
             }, intent, FILECHOOSER_RESULTCODE);
         } catch (ActivityNotFoundException e) {
-            Log.w("No activity found to handle file chooser intent.", e);
+            //Lint indicates that Log.w should only use 23 characters
+            Log.w("No File Chooser found", e);
             filePathsCallback.onReceiveValue(null);
         }
         return true;
