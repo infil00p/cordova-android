@@ -149,27 +149,6 @@ public class SystemWebViewEngine implements CordovaWebViewEngine {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
 
-        // Set the nav dump for HTC 2.x devices (disabling for ICS, deprecated entirely for Jellybean 4.2)
-        try {
-            Method gingerbread_getMethod =  WebSettings.class.getMethod("setNavDump", new Class[] { boolean.class });
-
-            String manufacturer = android.os.Build.MANUFACTURER;
-            LOG.d(TAG, "CordovaWebView is running on device made by: " + manufacturer);
-            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB &&
-                    android.os.Build.MANUFACTURER.contains("HTC"))
-            {
-                gingerbread_getMethod.invoke(settings, true);
-            }
-        } catch (NoSuchMethodException e) {
-            LOG.d(TAG, "We are on a modern version of Android, we will deprecate HTC 2.3 devices in 2.8");
-        } catch (IllegalArgumentException e) {
-            LOG.d(TAG, "Doing the NavDump failed with bad arguments");
-        } catch (IllegalAccessException e) {
-            LOG.d(TAG, "This should never happen: IllegalAccessException means this isn't Android anymore");
-        } catch (InvocationTargetException e) {
-            LOG.d(TAG, "This should never happen: InvocationTargetException means this isn't Android anymore.");
-        }
-
         //We don't save any form data in the application
         settings.setSaveFormData(false);
         settings.setSavePassword(false);
