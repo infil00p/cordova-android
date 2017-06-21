@@ -29,6 +29,8 @@ import android.webkit.WebChromeClient;
 import android.widget.FrameLayout;
 
 import org.apache.cordova.engine.SystemWebViewEngine;
+import org.apache.cordova.splashscreen.SplashScreen;
+import org.apache.cordova.whitelist.WhitelistPlugin;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -111,7 +113,13 @@ public class CordovaWebViewImpl implements CordovaWebView {
         // This isn't enforced by the compiler, so assert here.
         assert engine.getView() instanceof CordovaWebViewEngine.EngineView;
 
+        /*
+         * Add the built in plugins, because seriously.
+         */
+
         pluginManager.addService(CoreAndroid.PLUGIN_NAME, "org.apache.cordova.CoreAndroid");
+        pluginManager.addService(WhitelistPlugin.PLUGIN_NAME, "org.apache.cordova.whitelist.WhitelistPlugin");
+        pluginManager.addService(SplashScreen.PLUGIN_NAME, "org.apache.cordova.splashscreen.SplashScreenx   ");
         pluginManager.init();
 
     }

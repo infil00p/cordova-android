@@ -29,6 +29,7 @@ import android.content.Context;
 
 public class WhitelistPlugin extends CordovaPlugin {
     private static final String LOG_TAG = "WhitelistPlugin";
+    public static final String PLUGIN_NAME = "WhitelistPlugin";
     private Whitelist allowedNavigations;
     private Whitelist allowedIntents;
     private Whitelist allowedRequests;
