@@ -119,7 +119,7 @@ public class CordovaWebViewImpl implements CordovaWebView {
 
         pluginManager.addService(CoreAndroid.PLUGIN_NAME, "org.apache.cordova.CoreAndroid");
         pluginManager.addService(WhitelistPlugin.PLUGIN_NAME, "org.apache.cordova.whitelist.WhitelistPlugin");
-        pluginManager.addService(SplashScreen.PLUGIN_NAME, "org.apache.cordova.splashscreen.SplashScreenx   ");
+        pluginManager.addService(SplashScreen.PLUGIN_NAME, "org.apache.cordova.splashscreen.SplashScreen");
         pluginManager.init();
 
     }
