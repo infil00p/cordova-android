@@ -20,6 +20,13 @@
 -->
 ## Release Notes for Cordova (Android) ##
 
+### 6.4.0 (Nov 02, 2017)
+* [CB-13289](https://issues.apache.org/jira/browse/CB-13289) Fixing build problems with Studio Three, but keeping **Windows** Gradle fix for now, will be deprecated
+* [CB-13499](https://issues.apache.org/jira/browse/CB-13499) Remove duplicate "setting" in error strings
+* Include missing values for task.name when 'cdvBuildMultipleApks' option is true, 'task.name' can have 'validateSigningArmv7Release' or 'validateSigningX86Release' values too.
+* [CB-13406](https://issues.apache.org/jira/browse/CB-13406) Fixed AVD API level comparison when choosing sub-par API level match. Added tests for the best_image method.
+* [CB-13404](https://issues.apache.org/jira/browse/CB-13404) add **Android**-versions to bundledDependencies. Ignore best emulator selection when parsed AVD information does not include API level in the target
+
 ### 6.3.0 (Sep 25, 2017)
 * [CB-6936](https://issues.apache.org/jira/browse/CB-6936) fix crash when calling methods on a destroyed webview
 * [CB-12981](https://issues.apache.org/jira/browse/CB-12981) handle SDK 26.0.2 slightly different AVD list output for **Android** 8+ AVDs. Would cause "cannot read property replace of undefined" errors when trying to deploy an **Android** 8 emulator.
